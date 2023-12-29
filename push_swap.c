@@ -6,7 +6,7 @@
 /*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:15:13 by rabouzia          #+#    #+#             */
-/*   Updated: 2023/12/28 17:30:55 by rabouzia         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:23:45 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,19 @@ void	swap(int *tab)
 	tab[1] = tmp;
 }
 
-void push(int *a, int *b, int tab_len)
+void	push(int *a, int *b, int tab_len)
 {
-	if (!a || tab_len <= 0)
-		return;
+	int	i;
+
+	if (!a || tab_len <= 0 || !b)
+		return ;
 	b[0] = a[0];
-	int i;
 	i = 0;
-	while (i < tab_len) 
+	while (i < tab_len)
 	{
 		a[i] = a[i + 1];
 		i++;
-      	}
+	}
 }
 void	rotate(int *a, int tab_len)
 {
@@ -85,20 +86,23 @@ void	print_tab(int *tab, int len)
 	printf("\n");
 }
 
-void reverse_rotate(int *a, int tab_len) {
-    if (tab_len <= 1) {
-        return;
-    }
+void	reverse_rotate(int *a, int tab_len)
+{
+	int	tmp;
+	int	i;
 
-    int tmp = a[tab_len - 1];
-    int i = tab_len - 1;
-
-    while (i > 0) {
-        a[i] = a[i - 1];
-        i--;
-    }
-
-    a[0] = tmp;
+	if (tab_len <= 1)
+	{
+		return ;
+	}
+	tmp = a[tab_len - 1];
+	i = tab_len - 1;
+	while (i > 0)
+	{
+		a[i] = a[i - 1];
+		i--;
+	}
+	a[0] = tmp;
 }
 
 #include <stdlib.h>
@@ -106,15 +110,16 @@ void reverse_rotate(int *a, int tab_len) {
 
 int	main(int ac, char **av)
 {
-	int a[6] = {2, 7, -1, 4, 9, 1};
-	int b[1];
+	int	a[6] = {2, 7, -1, 4, 9, 1};
+	int	b[1];
+	int	len;
+	int	i;
 
-	int len = 6;
-	int i = 0;
-
+	len = 6;
+	i = 0;
 	print_tab(a, len);
 	print_tab(b, 1);
-	push(a,b,6);
+	push(a, b, 6);
 	print_tab(a, len);
 	print_tab(b, 1);
 }
