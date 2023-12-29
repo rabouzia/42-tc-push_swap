@@ -44,21 +44,20 @@ void	swap(int *tab)
 	tab[0] = tab[1];
 	tab[1] = tmp;
 }
-void	push(int *a, int *b, int tab_len)
+
+void push(int *a, int *b, int tab_len)
 {
-	int	i;
-
-	i = tab_len - 1;
-	if (tab_len <= 0 || !a)
-		return ;
-	while (i > 0)
+	if (!a || tab_len <= 0)
+		return;
+	b[0] = a[0];
+	int i;
+	i = 0;
+	while (i < tab_len) 
 	{
-		a[i] = a[i - 1];
-		i--;
-	}
-	a[0] = b[0];
+		a[i] = a[i + 1];
+		i++;
+      	}
 }
-
 void	rotate(int *a, int tab_len)
 {
 	int	i;
@@ -86,19 +85,20 @@ void	print_tab(int *tab, int len)
 	printf("\n");
 }
 
-void	reverse_rotate(int *a, int tab_len)
-{
-	int	i;
-	int	tmp;
+void reverse_rotate(int *a, int tab_len) {
+    if (tab_len <= 1) {
+        return;
+    }
 
-	i = tab_len - 1;
-	tmp = a[tab_len - 1];
-	while (i > -1)
-	{
-		a[i + 1] = a[i];
-		i--;
-	}
-	a[0] = tmp;
+    int tmp = a[tab_len - 1];
+    int i = tab_len - 1;
+
+    while (i > 0) {
+        a[i] = a[i - 1];
+        i--;
+    }
+
+    a[0] = tmp;
 }
 
 #include <stdlib.h>
@@ -114,7 +114,7 @@ int	main(int ac, char **av)
 
 	print_tab(a, len);
 	print_tab(b, 1);
-	push(a, b, 6);
+	push(a,b,6);
 	print_tab(a, len);
 	print_tab(b, 1);
 }
