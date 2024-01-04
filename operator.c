@@ -6,7 +6,7 @@
 /*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:55:26 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/01/04 12:43:54 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:57:48 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,41 @@ void	print_list(t_list *current)
 	printf("current.prev = %p\n", (void *)current->prev);
 }
 
+void next_assign(t_list *a, t_list *b)
+{
+    a->next=b;
+}
+
+void prev_assign(t_list *a, t_list *c)
+{
+    a->prev=c;
+}
+
+void surround_assign(t_list *a, t_list *b, t_list *c)
+{
+    next_assign(a, b);
+    prev_assign(a, c);    
+}
+
+void remove_node(t_list *l)
+{
+    
+}
+
 int	main(void)
 {
 	t_list	*a;
 	t_list	*b;
 	t_list	*c;
 
-	c = create_list(1);
+	a = create_list(1);
 	b = create_list(7);
 	c = create_list(4);
     
-	a->next = b;
-	b->next = c;
-	c->next = a;
-    
-	a->prev = c;
-	b->prev = a;
-	c->prev = b;
+	surround_assign(a, b ,c);
+    surround_assign(b, c, a);
+    surround_assign(c, b ,a);
+
 	
     printf("a = \n");
 	print_list(a);
