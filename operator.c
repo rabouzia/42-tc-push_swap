@@ -5,85 +5,65 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 16:26:56 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/01/02 15:23:23 by rabouzia         ###   ########.fr       */
+/*   Created: 2024/01/03 17:55:26 by rabouzia          #+#    #+#             */
+/*   Updated: 2024/01/04 12:43:54 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 
-typedef struct s_node
+typedef struct s_list
 {
-	int				content;
-	int				index;
-	struct s_node	*next;
-	struct s_node	*prev;
+	int				value;
+	struct s_list	*next;
+	struct s_list	*prev;
 
-}					t_node;
+}					t_list;
 
-void	ft_lstadd_front(t_node **lst, t_node *new)
+t_list	*create_list(int a)
 {
-	new->next = *lst;
-	*lst = new;
-}
+	t_list	*new;
 
-void	swap(t_node *tab)
-{
-	int	tmp;
-
-	tmp = tab->content;
-	tab->content = tab->next->content;
-	tab->next->content = tmp;
-}
-void	push(t_node **t1, t_node **t2)
-{
-	int	tmp;
-
-	tmp = pop(t1);
-	append(t2, tmp);
-}
-
-void	rotate(t_node *t1)
-{
-	t_node	*tmp;
-
-	tmp = t1;
-	t1 = t1->next;
-	ft_lstadd_back(t1, tmp);
-}
-
-int	pop(t_node **stack)
-{
-	int		ret;
-	t_node	*current;
-
-	current = *stack;
-	ret = current->content;
-	*stack = current->next;
-	free(current);
-	return (ret);
-}
-
-void delete (t_node **trash)
-{
-}
-
-void	append(t_node **stack, int value)
-{
-	t_node	*new;
-
-	new = malloc(sizeof(t_node));
+	new = (t_list *)malloc(sizeof(t_list));
 	if (!new)
-		return ;
-	new->content = value;
-	new->next = *stack;
-	*stack = new;
+		return (NULL);
+	new->value = a;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }
 
-/*
-fonction pop qui peut supprimer le premier noeaud de ta liste ;
-et retourner la valeur du noeud en question
+void	print_list(t_list *current)
+{
+	printf("current.value = %d\n", current->value);
+	printf("current.next = %p\n", (void *)current->next);
+	printf("current.prev = %p\n", (void *)current->prev);
+}
 
-puis faire une fonction append qui a partiir d une valeur cree un noeud en debut de chaine pour poiuvoir les creers au debuut et aussi pouvoir les append en milieu
-d execution
-*/
+int	main(void)
+{
+	t_list	*a;
+	t_list	*b;
+	t_list	*c;
+
+	c = create_list(1);
+	b = create_list(7);
+	c = create_list(4);
+    
+	a->next = b;
+	b->next = c;
+	c->next = a;
+    
+	a->prev = c;
+	b->prev = a;
+	c->prev = b;
+	
+    printf("a = \n");
+	print_list(a);
+	printf("b = \n");
+	print_list(b);
+	printf("c = \n");
+	print_list(c);
+    free(a); free (b); free(c);
+}
