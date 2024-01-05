@@ -6,7 +6,7 @@
 /*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:55:26 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/01/04 13:57:48 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:48:01 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ typedef struct s_list
 
 }					t_list;
 
-t_list	*create_list(int a)
+t_list	*create_node(int a)
 {
 	t_list	*new;
 
-	new = (t_list *)malloc(sizeof(t_list));
+	new = malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);
 	new->value = a;
@@ -34,54 +34,117 @@ t_list	*create_list(int a)
 	return (new);
 }
 
-void	print_list(t_list *current)
+void	print_AD_list(t_list *current)
 {
+	printf("current = %p\n", current);
 	printf("current.value = %d\n", current->value);
-	printf("current.next = %p\n", (void *)current->next);
-	printf("current.prev = %p\n", (void *)current->prev);
+	printf("current.next = %p\n", current->next);
+	printf("current.prev = %p\n", current->prev);
 }
 
-void next_assign(t_list *a, t_list *b)
+void	print_list(t_list *start)
 {
-    a->next=b;
+	t_list	*current;
+
+	current = start;
+	while (current)
+	{
+		printf("Node value: %d\n", current->value);
+		current = current->next;
+	}
 }
 
-void prev_assign(t_list *a, t_list *c)
+int	pop(t_list *stack)
 {
-    a->prev=c;
+	int		ret;
+	t_list	*current;
+
+	if (!stack)
+		return (0);
+	current = stack;
+	ret = current->value;
+	if (current->next)
+	{
+		stack = current->next;
+		stack->prev = NULL;
+		free(current);
+	}
+	else
+	{
+		free(stack);
+		stack = NULL;
+	}
+	return (ret);
 }
 
-void surround_assign(t_list *a, t_list *b, t_list *c)
+// void	append(t_list *stack, int value)
+// {
+// 	t_list	*new;
+
+// 	if (!stack)
+// 	{
+// 		stack = create_node(value);
+// 		return ;
+// 	}
+// 	new = create_node(value);
+// 	if (!new)
+// 		return ;
+// 	new->next = stack;
+// 	new->prev = NULL;
+// 	stack->prev = new;
+// 	stack = new;
+// }
+
+t_list *append(t_list *stack, int value)
 {
-    next_assign(a, b);
-    prev_assign(a, c);    
+    t_list *new = create_node(value);
+
+    if (!new)
+    {
+        // Handle memory allocation failure
+        return stack;
+    }
+
+    if (!stack)
+    {
+        // If the list is empty, the new node is both the head and tail
+        return new;
+    }
+
+    // Update pointers to insert the new node at the beginning
+    new->next = stack;
+    stack->prev = new;
+
+    return new;
 }
 
-void remove_node(t_list *l)
+void	push(t_list *t1, t_list *t2)
 {
-    
+	int	tmp;
+
+	if (!t1)
+		return ;
+	tmp = pop(t1);
+	append(t2, tmp);
 }
 
 int	main(void)
 {
 	t_list	*a;
-	t_list	*b;
-	t_list	*c;
+	t_list	*d;
 
-	a = create_list(1);
-	b = create_list(7);
-	c = create_list(4);
-    
-	surround_assign(a, b ,c);
-    surround_assign(b, c, a);
-    surround_assign(c, b ,a);
-
-	
-    printf("a = \n");
+	d = NULL;
+	a = NULL;
+	a = create_node(1);
+	a = append(a, 7);
+	a = append(a, 4);
+	printf("a1 = ");
 	print_list(a);
-	printf("b = \n");
-	print_list(b);
-	printf("c = \n");
-	print_list(c);
-    free(a); free (b); free(c);
+	push(a, d);
+	printf("push ... \n");
+	printf("a2 = ");
+	print_list(a);
+	printf("d = ");
+	print_list(d);
+	free(a);
 }
