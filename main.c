@@ -63,8 +63,7 @@ int	main(int ac, char **av)
 		return (ft_putstr_fd("Error\nArguments error\n", 2), 1);
 	// if (lst_len(a) <= 3)
 	// 	easy_sort(a);
-	turkish(&a, &b, av + 1);
-	printf("\ncheapest is %d\n", get_cheapest(b)->value);
+	turkish(&a, &b, av);
 	mr_propre(&a);
 	return (0);
 }

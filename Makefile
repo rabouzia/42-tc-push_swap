@@ -18,9 +18,9 @@ SRC =		parsing/check_mon_pote.c	\
 
 NAME = push_swap
 
-CFLAGS = -Wall -Werror -Wextra -g -I./ -g3 
+CFLAGS = -Wall -Werror -Wextra -g3 -I./
 
-CC = cc
+CC = gcc
 
 OBJ = $(SRC:.c=.o)
 

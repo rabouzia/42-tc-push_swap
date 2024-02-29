@@ -28,6 +28,7 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;
+void init_init(t_list *a);
 
 // pushing
 
@@ -62,7 +63,7 @@ void				rrr(t_list **a, t_list **b);
 
 void				ft_lstadd_back(t_list **head, t_list *new);
 t_list				*create_first(t_list *head, int n);
-t_list				*add_next(t_list *head, int n);
+t_list				*add_next(t_list **head, int n);
 void				remplissage(t_list **head, char **av);
 
 // ft_printf

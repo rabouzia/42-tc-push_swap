@@ -37,17 +37,17 @@ t_list	*find_smallest(t_list *a)
 	t_list	*smallest;
 	t_list	*first;
 
-	first = a;
 	if (!a)
 		return (NULL);
+	first = a;
 	smallest = a;
 	while (a)
 	{
-		if (a == first)
-			break ;
 		if (a->value < smallest->value)
 			smallest = a;
 		a = a->next;
+		if (a == first)
+			break ;
 	}
 	return (smallest);
 }
@@ -95,7 +95,6 @@ void	find_target(t_list *node_b, t_list *a)
 		a = a->next;
 		if (a == tmp)
 			break ;
-		printf("find_target\n");
 	}
 	if (!i)
 		node_b->target = find_smallest(a);
@@ -105,15 +104,21 @@ void	find_target(t_list *node_b, t_list *a)
 void	get_cost(t_list *a_target, t_list *node_b)
 {
 	int	cost;
+	int	len_a;
 	int	len_b;
 
 	cost = 0;
 	len_b = lst_len(node_b);
+	len_a = lst_len(a_target);
 	find_target(node_b, a_target);
-	if (node_b->center)
-		cost = (node_b->target->index + node_b->index);
+	if (node_b->center && node_b->target->center)
+		cost = node_b->target->index + node_b->index;
+	else if (node_b->center && !node_b->target->center)
+		cost = len_a - node_b->target->index + node_b->index;
+	else if (!node_b->center && !node_b->target->center)
+		cost = len_a - node_b->target->index + (len_b - node_b->index);
 	else
-		cost = (node_b->target->index) + (len_b - node_b->index);
+		cost = node_b->target->index + (len_b - node_b->index);
 	cost++; // le push
 	node_b->cost = cost;
 }
@@ -142,7 +147,6 @@ void	sniper(t_list *node_b, t_list *a)
 	first = node_b;
 	while (node_b)
 	{
-		printf("sniper\n");
 		find_target(node_b, a);
 		get_cost(node_b->target, node_b);
 		node_b = node_b->next;

@@ -43,16 +43,16 @@ char	*ft_strchr(const char *str, int c)
 int	lst_len(t_list *head)
 {
 	int		i;
-	t_list	*current;
-
-	i = 1;
-	current = head->next;
-	while (current)
+	t_list *first;
+	
+	i = 0;
+	first = head;
+	while (head)
 	{
 		i++;
-		current = current->next;
-		if (current == head)
-			break ;
+		head = head->next;
+		if (head == first)
+			break;
 	}
 	return (i);
 }

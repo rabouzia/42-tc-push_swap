@@ -22,7 +22,7 @@ void	rotate_reverse(t_list **a)
 void	rra(t_list **a)
 {
 	rotate_reverse(a);
-	write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **b)
@@ -35,5 +35,5 @@ void	rrr(t_list **a, t_list **b)
 {
 	rotate_reverse(b);
 	rotate_reverse(a);
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }
