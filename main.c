@@ -22,6 +22,7 @@ void	print_lista(t_list *head)
 	{
 		printf("node_value = %d  \n ", current->value);
 		printf("node_index = %d\n", current->index);
+		printf("prev_value = %d\n", current->prev->value);
 		// printf("cost = %d\n", current->cost);
 		// printf("target is = %d\n", current->target->value);
 		printf("\n");
@@ -39,10 +40,19 @@ void	print_listb(t_list *head)
 	printf("Head b:\n");
 	while (current)
 	{
+		// if (current->value == 662)
+		// {
+		// 	printf("node_value = %d  \n ", current->value);
+		// 	if (current->target)
+		// 		printf("target is = %d\n", current->target->value);
+		// 	printf("\n");
+		// }
 		printf("node_value = %d  \n ", current->value);
 		printf("node_index = %d\n", current->index);
-		printf("target is = %d\n", current->target->value);
-		printf("cost = %d\n", current->cost);
+		printf("prev_value = %d\n", current->prev->value);
+		if (current->target)
+			printf("target is = %d\n", current->target->value);
+		// printf("cost = %d\n", current->cost);
 		printf("\n");
 		current = current->next;
 		if (current == head)

@@ -77,28 +77,28 @@ void	init_value(t_list *a)
 
 void	find_target(t_list *node_b, t_list *a)
 {
-	t_list	*t;
-	int		i;
-	t_list	*tmp;
+	t_list	*first;
+	t_list	*target;
+	long value;
 
-	tmp = a;
-	i = 0;
-	t = a;
+	first = a;
+	target = a;
+	value = LONG_MAX;
 	while (a)
 	{
-		if (a->value > node_b->value && (a->value < t->value
-				|| t->value <= node_b->value))
+		if (a->value > node_b->value && a->value < value)
 		{
-			t = a;
-			i = 1;
+			value = a->value;
+			target = a;
 		}
 		a = a->next;
-		if (a == tmp)
+		if (a == first)
 			break ;
 	}
-	if (!i)
+	if (value == LONG_MAX)
 		node_b->target = find_smallest(a);
-	node_b->target = t;
+	else
+		node_b->target = target;
 }
 
 void	get_cost(t_list *a_target, t_list *node_b)
@@ -110,7 +110,6 @@ void	get_cost(t_list *a_target, t_list *node_b)
 	cost = 0;
 	len_b = lst_len(node_b);
 	len_a = lst_len(a_target);
-	find_target(node_b, a_target);
 	if (node_b->center && node_b->target->center)
 		cost = node_b->target->index + node_b->index;
 	else if (node_b->center && !node_b->target->center)

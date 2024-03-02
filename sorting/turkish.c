@@ -25,38 +25,27 @@ void	instruction_b(t_list **a, t_list **b)
 	t_list	*c;
 	t_list	*target;
 
-	//printf("b value %p\n", *b);
-	target = (*b)->target;
 	c = get_cheapest(*b);
-	//printf("c value %p\n", c);
-	// printf("c index %d\n", c->index);
-	// printf("c center %d\n", c->center);
-	// printf("c cost %d\n", c->cost);
-	// printf("target cost c %d\n", target->index);
-	// printf("target %d\n", target->center);
+	target = c->target;
 	while (c->index != 0 && c->center == 1)
 	{
 		rb(b);
-		//c->index--;
 		init_value(*b);
 	}
 	while (target->index != 0 && target->center == 1)
 	{
 		ra(a);
-		//target->index--;
 		init_value(*a);
 	}
-	while (c->index != 1 && c->center == 0)
+	while (c->index != 0 && c->center == 0)
 	{
 		rrb(b);
-		//c->index--;
 		init_value(*b);
 
 	}
 	while (target->index != 0 && target->center == 0)
 	{
 		rra(a);
-		//target->index--;
 		init_value(*a);
 	}
 	pb(a, b);
@@ -71,15 +60,10 @@ void	refresh(t_list **a, t_list **b)
 		init_value(*a);
 		init_value(*b);
 		sniper(*b, *a);
-		//print_lista(*a);
-		//print_listb(*b);
-		//printf("\ncheapest is %p\n", get_cheapest(*b));
-		//printf("\n\n\n");
 		instruction_b(a, b);
 	}
 	init_value(*a);
 	smallest = find_smallest(*a);
-	//printf("SMAL : %d\n", smallest->value);
 	while (smallest->index != 0 && smallest->center == 1)
 	{
 		ra(a);
@@ -98,11 +82,11 @@ void	turkish(t_list **a, t_list **b, char **av)
 {
 	remplissage(a, av + 1);
 	init_init(*a);
-	//print_lista(*a);
-	//print_listb(*b);
+	// print_lista(*a);
+	// print_listb(*b);
 	push_init(a, b);
 	easy_sort(a);
 	refresh(a, b);
-	//print_lista(*a);
-	//print_listb(*b);
+	// print_lista(*a);
+	// print_listb(*b);
 }
