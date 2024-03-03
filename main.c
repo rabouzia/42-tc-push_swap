@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:16:16 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/02/28 22:40:22 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/03 01:25:15 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,11 @@ void	print_listb(t_list *head)
 	printf("Head b:\n");
 	while (current)
 	{
-		// if (current->value == 662)
-		// {
-		// 	printf("node_value = %d  \n ", current->value);
-		// 	if (current->target)
-		// 		printf("target is = %d\n", current->target->value);
-		// 	printf("\n");
-		// }
 		printf("node_value = %d  \n ", current->value);
 		printf("node_index = %d\n", current->index);
 		printf("prev_value = %d\n", current->prev->value);
 		if (current->target)
 			printf("target is = %d\n", current->target->value);
-		// printf("cost = %d\n", current->cost);
 		printf("\n");
 		current = current->next;
 		if (current == head)
@@ -62,22 +54,19 @@ void	print_listb(t_list *head)
 
 int	main(int ac, char **av)
 {
-	t_list	*a;
-	t_list	*b;
+	t_list *a;
+	t_list *b;
 
 	a = NULL;
 	b = NULL;
-	if (ac < 2)
-		return (ft_putstr_fd("Error\nToo few arguments\n", 2), 1);
-	if (!check_argument(av + 1))
-		return (ft_putstr_fd("Error\nArguments error\n", 2), 1);
-	// if (lst_len(a) <= 3)
-	// 	easy_sort(a);
+	if (check_input(av + 1, ac))
+		return (1);
 	turkish(&a, &b, av);
 	mr_propre(&a);
 	return (0);
 }
 
 /*
-	TODO proteger le atos des valeurs trop grande
+	TODO is_sorted
+	TODO 	
 */

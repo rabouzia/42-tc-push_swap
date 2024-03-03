@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_libft.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:48:24 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/02/16 18:06:43 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/03/03 01:06:59 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,6 @@ void	ft_putstr_fd(char *str, int fd)
 	}
 }
 
-char	*ft_strchr(const char *str, int c)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < ft_strlen(str) + 1)
-	{
-		if (str[i] == (char)c)
-			return ((char *)str + i);
-		i++;
-	}
-	return (NULL);
-}
-
 int	lst_len(t_list *head)
 {
 	int		i;
@@ -57,9 +43,9 @@ int	lst_len(t_list *head)
 	return (i);
 }
 
-size_t	ft_strlen(const char *str)
+long	ft_strlen(const char *str)
 {
-	size_t	i;
+	long	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -67,11 +53,11 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-size_t	ft_atos(const char *str)
+long	ft_atol(const char *str)
 {
-	size_t i;
-	size_t p;
-	size_t n;
+	long i;
+	long p;
+	long n;
 
 	i = 0;
 	p = 1;

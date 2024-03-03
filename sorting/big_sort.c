@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:07 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/02/28 22:40:16 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/02 23:59:35 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,26 +118,9 @@ void	get_cost(t_list *a_target, t_list *node_b)
 		cost = len_a - node_b->target->index + (len_b - node_b->index);
 	else
 		cost = node_b->target->index + (len_b - node_b->index);
-	cost++; // le push
+	cost++;
 	node_b->cost = cost;
 }
-/*
-	// printf("\n");
-	printf("cost = %d\n", cost);
-	// printf("\n");
-	// int	len_a;
-	// len_a = lst_len(a_target);
-	// printf("node_b is = %d\n", node_b->value);
-	// printf("a_target is = %d\n", a_target->value);
-	// printf("node_b->index = %d\n", node_b->index);
-	// printf("a_target->index = %d\n", a_target->index);
-	// printf("nobe_b->center = %d\n", node_b->center);
-	TODO gerer si le cost est au dessus du centre et si oui le cost c'est son index
-			if (node_b->center)
-				rr;
-			else
-				rrr;
-*/
 
 void	sniper(t_list *node_b, t_list *a)
 {
@@ -193,8 +176,3 @@ t_list	*get_cheapest(t_list *b)
 	}
 	return (cheapest);
 }
-
-/*
-	TODO tu trouves le nombre le moins cher a deplacer et tu effectues les deplacements
-
-*/

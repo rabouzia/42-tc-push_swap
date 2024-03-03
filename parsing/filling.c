@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillupthetank.c                                    :+:      :+:    :+:   */
+/*   filling.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:54:43 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/02/21 00:52:23 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/03/03 01:12:43 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,6 @@ void	ft_lstadd_back(t_list **a, t_list *new)
 	}
 }
 
-t_list	*create_first(t_list *head, int n)
-{
-	head = create_node(n);
-	return (head);
-}
-
 t_list	*add_next(t_list **head, int n)
 {
 	t_list	*new;
@@ -85,8 +79,7 @@ void	remplissage(t_list **head, char **av)
 		return ;
 	while (*av)
 	{
-		add_next(head, ft_atos(*av));
+		add_next(head, ft_atol(*av));
 		av++;
 	}
-	//init_init(*head);
 }

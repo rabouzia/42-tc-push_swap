@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_mon_pote.c                                   :+:      :+:    :+:   */
+/*   checking.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:50:42 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/02/16 18:05:03 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/03/03 01:12:04 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	check_same(char **tab)
 		j = i + 1;
 		while (tab[j])
 		{
-			if (ft_atos(tab[i]) == ft_atos(tab[j]))
+			if (ft_atol(tab[i]) == ft_atol(tab[j]))
 				return (0);
 			j++;
 		}
@@ -60,16 +60,31 @@ int	check_same(char **tab)
 	return (1);
 }
 
-int	check_argument(char **tab)
+int	check_value(char **tab)
 {
-	if (!check_same(tab) || !check_valid(tab))
-		return (0);
+	long	nbr;
+	int		i;
+
+	i = 0;
+	while (tab[i])
+	{
+		nbr = ft_atol(tab[i]);
+		if (nbr > 2147483647 || nbr < -2147483648)
+			return (0);
+		i++;
+	}
 	return (1);
 }
-	// while (tab[i])
-	// {
-	// 	if (check_same(tab, tab[i], i));
-	// 		return 4
-	// 	check_valid(tab[i]);
-	// 	i++;
-	// }
+
+int	check_input(char **tab, int ac)
+{
+	if (ac < 2)
+		return (ft_putstr_fd("Error\nToo few arguments\n", 2), 1);
+	if (!check_same(tab))
+		return (ft_putstr_fd("Error\nSame arguments\n", 2), 1);
+	if (!check_valid(tab))
+		return (ft_putstr_fd("Error\nUnvalid arguments\n", 2), 1);
+	if (!check_value(tab))
+		return (ft_putstr_fd("Error\nUnvalid value\n", 2), 1);
+	return (0);
+}

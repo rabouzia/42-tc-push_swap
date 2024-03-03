@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:39:29 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/02/28 15:54:07 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/03 01:20:39 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ void	instruction_b(t_list **a, t_list **b)
 
 	c = get_cheapest(*b);
 	target = c->target;
+	while ((c->index != 0 && c->center == 1) && (target->index != 0 && target->center == 1) )
+	{
+		rr(a,b);
+		init_value(*b);
+		init_value(*a);
+	}
+	while ((c->index != 0 && c->center == 0) && (target->index != 0 && target->center == 0))
+	{
+		rrr(a,b);
+		init_value(*a);
+		init_value(*b);
+	}
 	while (c->index != 0 && c->center == 1)
 	{
 		rb(b);
@@ -41,7 +53,6 @@ void	instruction_b(t_list **a, t_list **b)
 	{
 		rrb(b);
 		init_value(*b);
-
 	}
 	while (target->index != 0 && target->center == 0)
 	{
@@ -53,7 +64,7 @@ void	instruction_b(t_list **a, t_list **b)
 
 void	refresh(t_list **a, t_list **b)
 {
-	t_list *smallest;
+	t_list	*smallest;
 
 	while (*b)
 	{
@@ -74,7 +85,7 @@ void	refresh(t_list **a, t_list **b)
 		rra(a);
 		init_value(*a);
 	}
-	init_value(*a); /*a enlever a la toute fin du projet - si ca casse tout garde les*/
+	init_value(*a);
 	init_value(*b);
 }
 
@@ -82,11 +93,7 @@ void	turkish(t_list **a, t_list **b, char **av)
 {
 	remplissage(a, av + 1);
 	init_init(*a);
-	// print_lista(*a);
-	// print_listb(*b);
 	push_init(a, b);
 	easy_sort(a);
 	refresh(a, b);
-	// print_lista(*a);
-	// print_listb(*b);
 }

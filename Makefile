@@ -1,18 +1,16 @@
 
-SRC =		parsing/check_mon_pote.c	\
-		parsing/fillupthetank.c			\
+SRC =		operators/push.c			\
+		operators/reverse_rotate.c		\
+		operators/rotate.c				\
+		operators/swap.c				\
+		parsing/checking.c				\
+		parsing/filling.c				\
 		sorting/easy_sort.c				\
 		sorting/big_sort.c 				\
 		sorting/turkish.c				\
 		sorting/big_sort.c				\
 		tools/mini_libft.c				\
 		tools/clean.c					\
-		operators/push.c				\
-		operators/reverse_rotate.c		\
-		operators/rotate.c				\
-		operators/swap.c				\
-		printing/ft_printf.c			\
-		printing/utils.c				\
 		main.c 							\
 
 
