@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   turkish.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 17:39:29 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 03:18:05 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 03:24:09 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	hitotsu(t_list *target, t_list *c, t_list **a, t_list **b)
 {
@@ -35,6 +34,7 @@ void	hitotsu(t_list *target, t_list *c, t_list **a, t_list **b)
 		init_value(*b);
 	}
 }
+
 void	futatsu(t_list *target, t_list *c, t_list **a, t_list **b)
 {
 	while (target->index != 0 && target->center == 1)
@@ -99,9 +99,7 @@ void	turkish(t_list **a, t_list **b, char **av)
 	if (is_sorted(*a))
 		return ;
 	init_init(*a);
-	// print_lista(*a);
 	push_init(a, b);
 	easy_sort(a);
 	refresh(a, b);
-	// print_lista(*a);
 }

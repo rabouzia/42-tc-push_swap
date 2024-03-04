@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easy_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:32:04 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/03/04 03:18:12 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 03:23:19 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ t_list	*find_smallest(t_list *a)
 	return (smallest);
 }
 
-
 int	is_sorted(t_list *a)
 {
 	t_list	*tmp;
@@ -80,10 +79,9 @@ int	is_sorted(t_list *a)
 	return (1);
 }
 
-
 void	easy_sort(t_list **a)
 {
-	t_list *biggest;
+	t_list	*biggest;
 
 	if (lst_len(*a) == 1)
 		return ;

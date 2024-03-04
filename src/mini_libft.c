@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_libft.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:48:24 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/03/03 01:06:59 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 03:22:53 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	ft_putstr_fd(char *str, int fd)
 int	lst_len(t_list *head)
 {
 	int		i;
-	t_list *first;
-	
+	t_list	*first;
+
 	i = 0;
 	first = head;
 	while (head)
@@ -38,7 +38,7 @@ int	lst_len(t_list *head)
 		i++;
 		head = head->next;
 		if (head == first)
-			break;
+			break ;
 	}
 	return (i);
 }
@@ -55,9 +55,9 @@ long	ft_strlen(const char *str)
 
 long	ft_atol(const char *str)
 {
-	long i;
-	long p;
-	long n;
+	long	i;
+	long	p;
+	long	n;
 
 	i = 0;
 	p = 1;

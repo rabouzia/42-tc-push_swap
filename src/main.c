@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:16:16 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 03:18:57 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 03:22:46 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 int	main(int ac, char **av)
 {
-	t_list *a;
-	t_list *b;
+	t_list	*a;
+	t_list	*b;
 
 	a = NULL;
 	b = NULL;
@@ -26,14 +25,6 @@ int	main(int ac, char **av)
 	mr_propre(&a);
 	return (0);
 }
-
-
-
-
-
-
-
-
 
 // void	print_lista(t_list *head)
 // {

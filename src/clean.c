@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:45 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 03:19:11 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 03:22:14 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ void	ft_lstdelone(t_list *lst)
 
 void	mr_propre(t_list **lst)
 {
-	t_list *tmp;
-	t_list *head;
+	t_list	*tmp;
+	t_list	*head;
 
 	head = *lst;
-
 	if (!lst || !*lst)
 		return ;
 	while (*lst)

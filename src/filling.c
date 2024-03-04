@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filling.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:54:43 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/03 01:12:43 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 03:22:28 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ t_list	*add_next(t_list **head, int n)
 	return (new);
 }
 
-void init_init(t_list *a)
+void	init_init(t_list *a)
 {
-	t_list *tmp = a;
+	t_list	*tmp;
+
+	tmp = a;
 	while (a)
 	{
 		a->cost = 0;
@@ -69,7 +71,7 @@ void init_init(t_list *a)
 		a->target = 0;
 		a = a->next;
 		if (a == tmp)
-			break;
+			break ;
 	}
 }
 
