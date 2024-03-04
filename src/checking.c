@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 15:50:42 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/03/03 01:12:04 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 02:54:14 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ int	check_value(char **tab)
 int	check_input(char **tab, int ac)
 {
 	if (ac < 2)
-		return (ft_putstr_fd("Error\nToo few arguments\n", 2), 1);
+		return (ft_putstr_fd("", 2), 1);
 	if (!check_same(tab))
 		return (ft_putstr_fd("Error\nSame arguments\n", 2), 1);
 	if (!check_valid(tab))
-		return (ft_putstr_fd("Error\nUnvalid arguments\n", 2), 1);
+		return (ft_putstr_fd("Error\nInvalid arguments\n", 2), 1);
 	if (!check_value(tab))
-		return (ft_putstr_fd("Error\nUnvalid value\n", 2), 1);
+		return (ft_putstr_fd("Error\nInvalid value\n", 2), 1);
 	return (0);
 }

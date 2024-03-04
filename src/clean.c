@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easy_sort.c                                        :+:      :+:    :+:   */
+/*   clean.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 16:32:04 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/03/03 01:21:53 by ramzerk          ###   ########.fr       */
+/*   Created: 2024/02/12 23:08:45 by rabouzia          #+#    #+#             */
+/*   Updated: 2024/03/04 03:19:11 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	easy_sort(t_list **a)
+void	ft_lstdelone(t_list *lst)
 {
-	t_list *biggest;
-
-	if (lst_len(*a) == 1)
+	if (!lst)
 		return ;
-	biggest = find_biggest(*a);
-	if (*a == biggest)
-		ra(a);
-	else if ((*a)->next == biggest)
-		rra(a);
-	if ((*a)->value > (*a)->next->value)
-		sa(*a);
+	if (lst)
+		free(lst);
+}
+
+void	mr_propre(t_list **lst)
+{
+	t_list *tmp;
+	t_list *head;
+
+	head = *lst;
+
+	if (!lst || !*lst)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst);
+		*lst = tmp;
+		if (*lst == head)
+			break ;
+	}
 }

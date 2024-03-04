@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:15:16 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/03 01:13:44 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 03:04:31 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void				get_cost(t_list *a_target, t_list *node_b);
 void				easy_sort(t_list **a);
 t_list				*get_cheapest(t_list *b);
 
+int					is_sorted(t_list *a);
 void				instruction(t_list **a, t_list **b);
 void				sniper(t_list *node_b, t_list *a);
 void				refresh(t_list **a, t_list **b);

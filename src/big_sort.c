@@ -6,51 +6,11 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:07 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/02 23:59:35 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 02:50:50 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_list	*find_biggest(t_list *a)
-{
-	t_list	*biggest;
-	t_list	*first;
-
-	first = a;
-	if (!a)
-		return (NULL);
-	biggest = a;
-	while (a)
-	{
-		a = a->next;
-		if (a->value > biggest->value)
-			biggest = a;
-		if (a->next == first)
-			break ;
-	}
-	return (biggest);
-}
-
-t_list	*find_smallest(t_list *a)
-{
-	t_list	*smallest;
-	t_list	*first;
-
-	if (!a)
-		return (NULL);
-	first = a;
-	smallest = a;
-	while (a)
-	{
-		if (a->value < smallest->value)
-			smallest = a;
-		a = a->next;
-		if (a == first)
-			break ;
-	}
-	return (smallest);
-}
 
 void	init_value(t_list *a)
 {
@@ -79,7 +39,7 @@ void	find_target(t_list *node_b, t_list *a)
 {
 	t_list	*first;
 	t_list	*target;
-	long value;
+	long	value;
 
 	first = a;
 	target = a;
@@ -111,13 +71,23 @@ void	get_cost(t_list *a_target, t_list *node_b)
 	len_b = lst_len(node_b);
 	len_a = lst_len(a_target);
 	if (node_b->center && node_b->target->center)
-		cost = node_b->target->index + node_b->index;
-	else if (node_b->center && !node_b->target->center)
+	{
+		if (node_b->index > node_b->target->index)
+			cost = node_b->index;
+		else
+			cost = node_b->target->index;
+	}
+	if (!node_b->center && !node_b->target->center)
+	{
+		if (len_b - node_b->index > len_a - node_b->target->index)
+			cost = len_b - node_b->index;
+		else
+			cost = len_a - node_b->target->index;
+	}
+	if (node_b->center && !node_b->target->center)
 		cost = len_a - node_b->target->index + node_b->index;
-	else if (!node_b->center && !node_b->target->center)
-		cost = len_a - node_b->target->index + (len_b - node_b->index);
-	else
-		cost = node_b->target->index + (len_b - node_b->index);
+	if (!node_b->center && node_b->target->center)
+		cost = node_b->target->index + len_b - node_b->index;
 	cost++;
 	node_b->cost = cost;
 }
@@ -137,29 +107,10 @@ void	sniper(t_list *node_b, t_list *a)
 	}
 }
 
-int	is_sorted(t_list *a)
-{
-	t_list	*tmp;
-	t_list	*first;
-
-	first = a;
-	tmp = a->next;
-	while (a)
-	{
-		if (a > tmp)
-			return (0);
-		tmp = tmp->next;
-		a = a->next;
-		if (tmp == first)
-			break ;
-	}
-	return (1);
-}
-
 t_list	*get_cheapest(t_list *b)
 {
-	t_list	*cheapest;
-	t_list	*first;
+	t_list *cheapest;
+	t_list *first;
 
 	first = b;
 	if (!b)
@@ -167,12 +118,11 @@ t_list	*get_cheapest(t_list *b)
 	cheapest = b;
 	while (b)
 	{
-		if (b == first)
-			break ;
 		if (b->cost < cheapest->cost)
 			cheapest = b;
 		b = b->next;
-		printf("get_cheapest\n");
+		if (b == first)
+			break ;
 	}
 	return (cheapest);
 }

@@ -1,17 +1,17 @@
 
-SRC =		operators/push.c			\
-		operators/reverse_rotate.c		\
-		operators/rotate.c				\
-		operators/swap.c				\
-		parsing/checking.c				\
-		parsing/filling.c				\
-		sorting/easy_sort.c				\
-		sorting/big_sort.c 				\
-		sorting/turkish.c				\
-		sorting/big_sort.c				\
-		tools/mini_libft.c				\
-		tools/clean.c					\
-		main.c 							\
+SRC =		src/push.c				\
+		src/reverse_rotate.c		\
+		src/rotate.c				\
+		src/swap.c					\
+		src/checking.c				\
+		src/filling.c				\
+		src/easy_sort.c				\
+		src/big_sort.c 				\
+		src/turkish.c				\
+		src/big_sort.c				\
+		src/mini_libft.c			\
+		src/clean.c					\
+		src/main.c 					\
 
 
 NAME = push_swap
