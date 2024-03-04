@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:15:16 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 03:04:31 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 14:07:41 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_list				*find_biggest(t_list *a);
 t_list				*find_smallest(t_list *a);
 void				find_target(t_list *node_b, t_list *a);
 void				init_value(t_list *a);
-void				get_cost(t_list *a_target, t_list *node_b);
+void				get_cost(t_list *a_target, t_list *node_b, int cost);
 void				easy_sort(t_list **a);
 t_list				*get_cheapest(t_list *b);
 

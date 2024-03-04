@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:07 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 02:50:50 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/04 14:08:44 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,34 +61,31 @@ void	find_target(t_list *node_b, t_list *a)
 		node_b->target = target;
 }
 
-void	get_cost(t_list *a_target, t_list *node_b)
+void	get_cost(t_list *a_target, t_list *node_b, int cost)
 {
-	int	cost;
 	int	len_a;
 	int	len_b;
 
-	cost = 0;
 	len_b = lst_len(node_b);
 	len_a = lst_len(a_target);
 	if (node_b->center && node_b->target->center)
 	{
 		if (node_b->index > node_b->target->index)
-			cost = node_b->index;
+			cost += node_b->index;
 		else
-			cost = node_b->target->index;
+			cost += node_b->target->index;
 	}
 	if (!node_b->center && !node_b->target->center)
 	{
 		if (len_b - node_b->index > len_a - node_b->target->index)
-			cost = len_b - node_b->index;
+			cost += len_b - node_b->index;
 		else
-			cost = len_a - node_b->target->index;
+			cost += len_a - node_b->target->index;
 	}
 	if (node_b->center && !node_b->target->center)
-		cost = len_a - node_b->target->index + node_b->index;
+		cost += len_a - node_b->target->index + node_b->index;
 	if (!node_b->center && node_b->target->center)
-		cost = node_b->target->index + len_b - node_b->index;
-	cost++;
+		cost += node_b->target->index + len_b - node_b->index;
 	node_b->cost = cost;
 }
 
@@ -100,7 +97,7 @@ void	sniper(t_list *node_b, t_list *a)
 	while (node_b)
 	{
 		find_target(node_b, a);
-		get_cost(node_b->target, node_b);
+		get_cost(node_b->target, node_b, 1);
 		node_b = node_b->next;
 		if (node_b == first)
 			break ;
