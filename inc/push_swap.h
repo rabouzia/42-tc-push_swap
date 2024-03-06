@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:15:16 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 14:07:41 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/06 11:51:58 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,15 @@ void				refresh(t_list **a, t_list **b);
 void				turkish(t_list **a, t_list **b, char **av);
 
 void				mr_propre(t_list **head);
-
+//------------------- testings ----------------
 void				print_lista(t_list *head);
 void				print_listb(t_list *head);
+
+//----------------- bonusing -------------------
+
+int					ft_strcmp(char *s1, char *s2);
+void				erroring(char *str, t_list **a, t_list **b);
+void				hey_listen(char *str, t_list **a, t_list **b);
+void				prompt_checker(t_list **a, t_list **b);
 
 #endif

@@ -1,41 +1,59 @@
+SRC =		src/push.c					\
+			src/reverse_rotate.c		\
+			src/rotate.c				\
+			src/swap.c					\
+			src/checking.c				\
+			src/filling.c				\
+			src/easy_sort.c				\
+			src/big_sort.c 				\
+			src/turkish.c				\
+			src/mini_libft.c			\
+			src/clean.c					\
+			src/main.c
 
-SRC =		src/push.c				\
-		src/reverse_rotate.c		\
-		src/rotate.c				\
-		src/swap.c					\
-		src/checking.c				\
-		src/filling.c				\
-		src/easy_sort.c				\
-		src/big_sort.c 				\
-		src/turkish.c				\
-		src/big_sort.c				\
-		src/mini_libft.c			\
-		src/clean.c					\
-		src/main.c 					\
+BONUS_SRC =	src/checker.c				\
+			src/get_next_line.c 		\
+			src/get_next_line_utils.c 	\
+			src/filling.c				\
+			src/checking.c				\
+			src/push.c					\
+			src/reverse_rotate.c		\
+			src/rotate.c				\
+			src/mini_libft.c			\
+			src/swap.c					\
+			src/clean.c 				\
 
+NAME =		push_swap
 
-NAME = push_swap
+BONUS_NAME = checker
 
-CFLAGS = -Wall -Werror -Wextra -g3 -I./
+CFLAGS =	-Wall -Werror -Wextra -g3 -I./inc
 
-CC = gcc
+CC =		cc
 
 OBJ = $(SRC:.c=.o)
 
-all:	$(NAME)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
+
+all:		$(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) -o $@ $^
+		$(CC) $(CFLAGS) -o $@ $^
 
-$(%.o): $(%.c)
-	$(CC) $(CFLAGS) -o $@ -c $^
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJ)
+		$(CC) $(CFLAGS) -o $@ $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		rm -f $(OBJ)
+		rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-		rm -f $(NAME)
+		rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
-.PHONY: clean fclean all re
+.PHONY: clean fclean all re bonus
