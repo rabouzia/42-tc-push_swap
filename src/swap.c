@@ -6,7 +6,7 @@
 /*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:39:35 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 03:23:02 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:10:58 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	swap(t_list *head)
 	int		tmp;
 	t_list	*second;
 
+	if (!head || lst_len(head) == 1)
+		return ;
 	second = head->next;
 	tmp = head->value;
 	head->value = second->value;

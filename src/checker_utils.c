@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:01:58 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/03/06 18:08:38 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/06 18:48:29 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,16 @@ int	ft_strcmp(char *s1, char *s2)
 		s2++;
 	}
 	return (*s1 - *s2);
+}
+
+int	b_check_input(char **tab, int ac)
+{
+	(void)ac;
+	if (!check_same(tab))
+		return (ft_putstr_fd("Error\n", 2), 0);
+	if (!check_valid(tab))
+		return (ft_putstr_fd("Error\n", 2), 0);
+	if (!check_value(tab))
+		return (ft_putstr_fd("Error\n", 2), 0);
+	return (1);
 }

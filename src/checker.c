@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 21:41:12 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/03/06 18:03:35 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/06 18:45:52 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "push_swap.h"
-
-
 
 void	erroring(char *str, t_list **a, t_list **b)
 {
@@ -88,7 +86,8 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (0);
-	// check_input(av + 1, ac);
+	if (!b_check_input(av + 1, ac))
+		exit(1);
 	remplissage(&a, av + 1);
 	prompt_checker(&a, &b);
 	ok_desu(a, b);

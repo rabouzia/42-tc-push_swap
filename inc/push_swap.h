@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:15:16 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/06 18:11:37 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/06 18:37:19 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,7 @@ int					ft_strcmp(char *s1, char *s2);
 void				erroring(char *str, t_list **a, t_list **b);
 void				hey_listen(char *str, t_list **a, t_list **b);
 void				prompt_checker(t_list **a, t_list **b);
+int					b_check_input(char **tab, int ac);
+int					check_value(char **tab);
 
 #endif

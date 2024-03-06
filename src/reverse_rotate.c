@@ -6,7 +6,7 @@
 /*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:35:28 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 03:22:58 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:08:09 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate_reverse(t_list **a)
 {
-	if (!a)
+	if (!a || !(*a) || lst_len(*a) == 1)
 		return ;
 	*a = (*a)->prev;
 }
