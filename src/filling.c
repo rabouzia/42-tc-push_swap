@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filling.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:54:43 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/04 03:22:28 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:30:44 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	remplissage(t_list **head, char **av)
 	if (!av || !*av)
 		return ;
 	while (*av)
-	{
+	{	
 		add_next(head, ft_atol(*av));
 		av++;
 	}

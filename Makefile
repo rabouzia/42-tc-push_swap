@@ -9,7 +9,9 @@ SRC =		src/push.c					\
 			src/turkish.c				\
 			src/mini_libft.c			\
 			src/clean.c					\
-			src/main.c
+			src/ft_split.c				\
+			src/main.c						
+
 
 BONUS_SRC =	src/checker.c				\
 			src/get_next_line.c 		\
@@ -21,7 +23,14 @@ BONUS_SRC =	src/checker.c				\
 			src/rotate.c				\
 			src/mini_libft.c			\
 			src/swap.c					\
+			src/ft_split.c				\
 			src/clean.c 				\
+			src/easy_sort.c				\
+			src/checker_op1.c			\
+			src/checker_op2.c			\
+			src/checker_utils.c			
+
+
 
 NAME =		push_swap
 

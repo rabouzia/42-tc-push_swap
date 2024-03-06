@@ -6,7 +6,7 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:15:16 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/06 11:51:58 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/06 18:11:37 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,38 @@ void				rra(t_list **a);
 void				rrb(t_list **b);
 void				rrr(t_list **a, t_list **b);
 
+void				rotate_reverse(t_list **a);
+void				rotate(t_list **a);
+void				swap(t_list *head);
+void				push(t_list **t1, t_list **t2);
+
+//----- bonus -----
+void				b_ra(t_list **a);
+void				b_rb(t_list **b);
+void				b_rr(t_list **a, t_list **b);
+
+void				b_sa(t_list *a);
+void				b_sb(t_list *b);
+void				b_ss(t_list *a, t_list *b);
+
+void				b_rra(t_list **a);
+void				b_rrb(t_list **b);
+void				b_rrr(t_list **a, t_list **b);
+
+void				b_pa(t_list **a, t_list **b);
+void				b_pb(t_list **a, t_list **b);
 //----------------- parsing ----------------
 
 long				ft_strlen(const char *str);
 long				ft_atol(const char *str);
+int					ft_strcmp(char *s1, char *s2);
 
 void				ft_putstr_fd(char *str, int fd);
 void				push_init(t_list **a, t_list **b);
 void				init_init(t_list *a);
 void				remplissage(t_list **head, char **av);
 
+char				**ft_split(char const *s, char c);
 int					is_valid(char *str);
 int					check_valid(char **tab);
 int					check_same(char **tab);
