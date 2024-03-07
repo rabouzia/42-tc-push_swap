@@ -6,12 +6,11 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:54:36 by rabouzia          #+#    #+#             */
-/*   Updated: 2024/03/06 11:49:39 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/07 13:20:06 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 int	ft_strlen2(char *str)
 {
@@ -28,7 +27,7 @@ int	ft_strlen2(char *str)
 void	*ft_memchr(const char *str, int c)
 {
 	unsigned char	*res;
-	
+
 	res = (unsigned char *)str;
 	while (*res)
 	{

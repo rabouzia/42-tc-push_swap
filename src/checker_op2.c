@@ -6,12 +6,11 @@
 /*   By: ramzerk <ramzerk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:00:32 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/03/06 18:07:32 by ramzerk          ###   ########.fr       */
+/*   Updated: 2024/03/07 13:19:48 by ramzerk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	b_ra(t_list **a)
 {
@@ -37,4 +36,3 @@ void	b_sb(t_list *b)
 {
 	swap(b);
 }
-
