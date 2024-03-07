@@ -6,7 +6,7 @@
 /*   By: rabouzia <rabouzia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 21:41:12 by ramzerk           #+#    #+#             */
-/*   Updated: 2024/03/06 18:45:52 by rabouzia         ###   ########.fr       */
+/*   Updated: 2024/03/07 01:06:26 by rabouzia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	erroring(char *str, t_list **a, t_list **b)
 void	hey_listen(char *str, t_list **a, t_list **b)
 {
 	if (!ft_strcmp(str, "pa\n"))
-		b_pa(a, b);
-	else if (!ft_strcmp(str, "pb\n"))
 		b_pb(a, b);
+	else if (!ft_strcmp(str, "pb\n"))
+		b_pa(a, b);
 	else if (!ft_strcmp(str, "sa\n"))
 		b_sa(*a);
 	else if (!ft_strcmp(str, "sb\n"))
@@ -58,6 +58,7 @@ void	prompt_checker(t_list **a, t_list **b)
 	while (str)
 	{
 		hey_listen(str, a, b);
+		// print_lista(*a);
 		free(str);
 		str = get_next_line(0);
 	}
@@ -76,6 +77,25 @@ int	ok_desu(t_list *a, t_list *b)
 		return (0);
 	}
 }
+void	print_lista(t_list *head)
+{
+	t_list	*current;
+
+	current = head;
+	printf("Head a:\n");
+	while (current)
+	{
+		printf("node_value = %d  \n ", current->value);
+		// printf("node_index = %d\n", current->index);
+		// printf("prev_value = %d\n", current->prev->value);
+		// printf("cost = %d\n", current->cost);
+		// printf("target is = %d\n", current->target->value);
+		printf("\n");
+		current = current->next;
+		if (current == head)
+			break ;
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -89,9 +109,32 @@ int	main(int ac, char **av)
 	if (!b_check_input(av + 1, ac))
 		exit(1);
 	remplissage(&a, av + 1);
+	print_lista(a);
 	prompt_checker(&a, &b);
 	ok_desu(a, b);
+	print_lista(a);
 	mr_propre(&a);
 	if (lst_len(b) != 0)
 		mr_propre(&b);
 }
+
+// void	print_listb(t_list *head)
+// {
+// 	t_list	*current;
+
+// 	current = head;
+// 	printf("\n");
+// 	printf("Head b:\n");
+// 	while (current)
+// 	{
+// 		printf("node_value = %d  \n ", current->value);
+// 		printf("node_index = %d\n", current->index);
+// 		printf("prev_value = %d\n", current->prev->value);
+// 		if (current->target)
+// 			printf("target is = %d\n", current->target->value);
+// 		printf("\n");
+// 		current = current->next;
+// 		if (current == head)
+// 			break ;
+// 	}
+// }
